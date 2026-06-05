@@ -48,5 +48,3 @@ REQUIREMENTS
   Node.js   https://nodejs.org
   yt-dlp    installed via winget install yt-dlp
   FFmpeg    installed automatically alongside yt-dlp
-
-Credits: DenizHvhGuy
