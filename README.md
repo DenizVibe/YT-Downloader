@@ -1,5 +1,3 @@
-Credits: DenizHvhGuy
-
 YouTube Downloader
 ==================
 
