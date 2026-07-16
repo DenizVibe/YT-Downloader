@@ -1,6 +1,6 @@
 # YouTube Downloader
 
-A clean, self-hosted YouTube downloader with a minimal dark UI. Paste a link, pick your settings, and download straight to your machine — no accounts, no tracking, no nonsense.
+A clean, self-hosted YouTube downloader with a minimal dark UI. Paste a link, pick your settings, and download straight to your machine - no accounts, no tracking, no nonsense.
 
 ---
 
@@ -30,14 +30,14 @@ The frontend (`index.html`) talks to a local Express server (`server.js`) runnin
 winget install yt-dlp
 ```
 
-**2. Install Node dependencies:**
+**2. Initialize the project and install dependencies:**
 
 ```bash
 npm init -y
 npm install express cors
 ```
 
-This generates `package.json` and installs `express` and `cors` — the only two runtime dependencies.
+There is no `package.json` included, so `npm init -y` creates one first. Then `npm install` pulls in `express` and `cors`.
 
 ---
 
@@ -60,7 +60,7 @@ Open `index.html` directly in your browser (no separate web server needed).
 
 **3. Use it:**
 
-- Paste a YouTube URL — a preview will appear automatically
+- Paste a YouTube URL - a preview will appear automatically
 - Pick your resolution and codec
 - Click **Fetch** and wait for the download to process
 - Click **Download** when it turns green
@@ -72,9 +72,9 @@ Open `index.html` directly in your browser (no separate web server needed).
 ## Project Structure
 
 ```
-├── server.js       # Express backend — handles yt-dlp, job queue, file streaming
-├── fetcher.js      # Frontend JS — API calls, polling, download trigger
-├── index.html      # UI — paste URL, pick settings, trigger download
+├── server.js       # Express backend - handles yt-dlp, job queue, file streaming
+├── fetcher.js      # Frontend JS - API calls, polling, download trigger
+├── index.html      # UI - paste URL, pick settings, trigger download
 ├── global.css      # Styles
 ├── package.json
 └── README.md
@@ -86,9 +86,9 @@ Open `index.html` directly in your browser (no separate web server needed).
 
 | Resolution | Codec Behavior |
 |------------|----------------|
-| Best / 4K / 1440p | Always VP9 or AV1 — YouTube doesn't offer H.264 above 1080p |
+| Best / 4K / 1440p | Always VP9 or AV1 - YouTube doesn't offer H.264 above 1080p |
 | 1080p / 720p | Codec selection applies (H.264, H.265, VP9, AV1) |
-| MP3 | Extracts audio only — resolution setting is ignored |
+| MP3 | Extracts audio only - resolution setting is ignored |
 
 If the requested codec isn't available for a video, the server automatically falls back to the next best available format rather than failing.
 
@@ -102,7 +102,7 @@ If the requested codec isn't available for a video, the server automatically fal
 - Try restarting the server if it's been running for a while
 
 **yt-dlp not found**
-- After `winget install yt-dlp`, open a **new** terminal window before running the server — the PATH won't update in an already-open terminal
+- After `winget install yt-dlp`, open a **new** terminal window before running the server - the PATH won't update in an already-open terminal
 
 **Port 3000 already in use**
 - Something else is using port 3000. Change the port at the bottom of `server.js` (`app.listen(3000, ...)`) and update the `SERVER` constant at the top of `fetcher.js` to match.
