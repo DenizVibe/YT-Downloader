@@ -33,10 +33,11 @@ winget install yt-dlp
 **2. Install Node dependencies:**
 
 ```bash
-npm install
+npm init -y
+npm install express cors
 ```
 
-This installs `express` and `cors` — the only two runtime dependencies.
+This generates `package.json` and installs `express` and `cors` — the only two runtime dependencies.
 
 ---
 
