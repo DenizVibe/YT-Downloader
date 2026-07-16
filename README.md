@@ -1,50 +1,66 @@
-YouTube Downloader
-==================
+# YouTube Downloader
 
-A clean, fast, self-hosted YouTube downloader with a minimal dark UI. Paste a link, pick your settings, and download straight to your machine.
+A clean, self-hosted YouTube downloader with a minimal dark UI. Paste a link, pick your settings, and download straight to your machine — no accounts, no tracking, no nonsense.
 
-FEATURES
---------
+---
 
-- Real-time download progress (%)
-- Choose resolution: Best, 4K, 1440p, 1080p, 720p
-- Choose codec: H.264, H.265, VP9, AV1, or MP3 (Audio)
-- Video preview with thumbnail, title, and formatted duration
-- Automatic filename cleanup using video title
+## Features
 
+- Real-time download progress with live percentage feedback
+- Resolution picker — Best, 4K, 1440p, 1080p, 720p
+- Codec picker — H.264, H.265, VP9, AV1, or MP3 (audio only)
+- Video preview showing thumbnail, title, and formatted duration
+- Automatic filename sanitization from the video title
 
-HOW TO USE
-----------
+---
 
-1. Open a terminal in this folder
-2. Run: node server.js
-3. Open index.html in your browser
-4. Paste a YouTube link, wait for the preview, pick your settings, then Fetch & Download
+## Requirements
 
+| Tool | Install |
+|------|---------|
+| [Node.js](https://nodejs.org) | Download from nodejs.org |
+| yt-dlp | `winget install yt-dlp` |
+| FFmpeg | Installed automatically alongside yt-dlp |
 
-FIRST TIME SETUP
-----------------
+---
 
-Install dependencies (only needed once):
+## Setup
 
-  npm install
+Run once to install Node dependencies:
 
-Install yt-dlp (only needed once):
+```bash
+npm install
+```
 
-  winget install yt-dlp
+---
 
+## Usage
 
-RESOLUTION NOTES
-----------------
+```bash
+node server.js
+```
 
-- Best / 4K / 1440p  →  downloads in VP9 or AV1 (YouTube does not have H.264 above 1080p)
-- 1080p / 720p        →  codec selection applies (H.264, H.265, VP9, AV1)
-- MP3                 →  automatically extracts high-quality audio
+Then open `index.html` in your browser, paste a YouTube URL, wait for the preview to load, choose your resolution and codec, and hit **Fetch & Download**.
 
+---
 
-REQUIREMENTS
-------------
+## Resolution & Codec Notes
 
-  Node.js   https://nodejs.org
-  yt-dlp    installed via winget install yt-dlp
-  FFmpeg    installed automatically alongside yt-dlp
+| Resolution | Codec Behavior |
+|------------|----------------|
+| Best / 4K / 1440p | Downloads in VP9 or AV1 — YouTube does not offer H.264 above 1080p |
+| 1080p / 720p | Codec selection applies (H.264, H.265, VP9, AV1) |
+| MP3 | Extracts high-quality audio regardless of codec setting |
+
+---
+
+## Project Structure
+
+```
+├── server.js       # Express backend, proxies yt-dlp calls
+├── index.html      # Frontend UI
+├── package.json
+└── README.md
+```
+
+> **Note:** This tool is intended for personal use. Respect copyright and YouTube's Terms of Service when downloading content.
